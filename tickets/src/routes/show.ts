@@ -1,10 +1,10 @@
-import express, { Request, Response } from "express";
-import { Ticket } from "../models/tickets";
-import { NotFoundError } from "@pntickets/common";
+import express, { Request, Response } from 'express';
+import { Ticket } from '../models/tickets';
+import { NotFoundError } from '@pntickets/common';
 
 const router = express.Router();
 
-router.get("/api/tickets/:id", async (req: Request, res: Response) => {
+router.get('/api/tickets/:id', async (req: Request, res: Response) => {
   const ticket = await Ticket.findById(req.params.id);
 
   if (!ticket) {
