@@ -2,7 +2,11 @@ name: deploy-auth
 
 on:
   push:
+<<<<<<< HEAD
     branches:
+=======
+    branches: 
+>>>>>>> a1e52cf1388f843ac345c85dac26cf6d9d1b6050
       - master
     paths:
       - 'auth/**'
@@ -17,7 +21,11 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+<<<<<<< HEAD
       - run: docker push piotrnap/auth
+=======
+      - run: docker push piotrnap/auth 
+>>>>>>> a1e52cf1388f843ac345c85dac26cf6d9d1b6050
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
