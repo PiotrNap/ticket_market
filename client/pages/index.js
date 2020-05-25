@@ -8,7 +8,7 @@ const LandingPage = ({ currentUser, tickets }) => {
         <td>{ticket.price}</td>
         <td>
           <Link href='/tickets/[ticketId]' as={`/tickets/${ticket.id}`}>
-            <a>View</a>
+            <a>View Ticket</a>
           </Link>
         </td>
       </tr>
