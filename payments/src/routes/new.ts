@@ -55,6 +55,7 @@ router.post(
     });
 
     await payment.save();
+
     new PaymentCreatedPublisher(natsWrapper.client).publish({
       id: payment.id,
       orderId: payment.orderId,
