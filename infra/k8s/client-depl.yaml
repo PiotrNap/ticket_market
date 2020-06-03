@@ -15,12 +15,6 @@ spec:
       containers:
         - name: client
           image: piotrnap/client
-          env:
-            - name: SENDGRID_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: sendgrid-key
-                  key: SENDGRID_KEY
 ---
 apiVersion: v1
 kind: Service
@@ -34,5 +28,3 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
-
-      
