@@ -20,7 +20,6 @@ stan.on('connect', async () => {
   } catch (err) {
     console.log(err);
   }
-
   // const data = JSON.stringify({
   //   data: '123',
   //   title: 'concert',

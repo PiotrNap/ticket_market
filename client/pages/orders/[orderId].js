@@ -50,8 +50,6 @@ OrderShow.getInitialProps = async (context, client) => {
 
   const { data } = await client.get(`/api/orders/${orderId}`);
 
-  // const { data } = await client.get(`/api/users`)
-
   return { order: data };
 };
 
