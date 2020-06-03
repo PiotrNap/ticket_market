@@ -6,7 +6,7 @@ export default ({ req }) => {
 
     return axios.create({
       baseURL: 'http://www.ticket-market-app.xyz', // --> deployment url
-      // baseURL: 'http://ingress-nginx.ingress-nginx.svc.cluster.local', // --> local development
+      // baseURL: 'http://ingress-nginx.ingress-nginx.svc.cluster.local',// --> local development
       headers: req.headers,
     });
   } else {

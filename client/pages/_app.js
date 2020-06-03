@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import buildClient from '../api/build-client';
-import Header from '../components/Header';
 import Head from 'next/head';
-import Footer from '../components/Footer';
 import { Fragment } from 'react';
 import favicon from '../public/static/favicon.png';
 import '../styles/global.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
