@@ -14,15 +14,6 @@ const OrderShow = ({ order, currentUser }) => {
     onSuccess: () => Router.push('/orders'),
   });
 
-  // const { doRequest, errors } = useRequest({
-  //   url: '/api/payments',
-  //   method: 'post',
-  //   body: {
-  //     orderId: order.id,
-  //   },
-  //   onSuccess: () => Router.push('/orders'),
-  // });
-
   useEffect(() => {
     const findTimeLeft = () => {
       const msLeft = new Date(order.expiresAt) - new Date();
