@@ -4,17 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export -o public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.1.1",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
-    "next": "^9.3.6",
+    "bootstrap": "^4.5.0",
+    "next": "^9.4.4",
+    "next-images": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-stripe-checkout": "^2.6.3"
+    "react-stripe-checkout": "^2.6.3",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7"
   }
 }
