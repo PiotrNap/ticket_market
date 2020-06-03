@@ -10,7 +10,7 @@ const StyledNav = styled.header`
   border-bottom: 1px solid #1d1d1d;
 `;
 
-export default ({ currentUser }) => {
+const Header = ({ currentUser }) => {
   return (
     <StyledNav className='navbar navbar-light'>
       <Logo currentUser={currentUser} />
@@ -18,3 +18,5 @@ export default ({ currentUser }) => {
     </StyledNav>
   );
 };
+
+export default Header;
