@@ -62,3 +62,95 @@ spec:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/component: controller
+<<<<<<< HEAD
+=======
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ticket-market
+
+---
+
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: test-selfsigned
+  namespace: ticket-market
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: selfsigned-cert
+  namespace: ticket-market
+spec:
+  commonName: ticket-market-app.xyz
+  secretName: selfsigned-cert-tls
+  issuerRef:
+    name: test-selfsigned
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ticket-market-ingress
+  namespace: ticket-market
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+  - hosts: 
+    - www.ticket-market-app.xyz
+    secretName: selfsigned-cert-tls
+  rules:
+  - host: www.ticket-market-app.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ticket-market-svc
+          servicePort: 80
+        
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticket-market
+  namespace: ticket-market
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ticket-market
+  template:
+    metadata:
+      labels:
+        app: ticket-market
+    spec:
+      containers:
+      - name: ticket-market
+        image: nginxdemos/hello:plain-text
+        ports:
+        - containerPort: 80
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ticket-market-svc
+  namespace: ticket-market
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: ticket-market
+>>>>>>> d37152bdcc24fd7dbfbe63b540575212db2fc826

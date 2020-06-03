@@ -6,6 +6,10 @@ import Footer from '../components/Footer';
 import { Fragment } from 'react';
 import favicon from '../public/static/favicon.png';
 import '../styles/global.css';
+<<<<<<< HEAD
+=======
+
+>>>>>>> d37152bdcc24fd7dbfbe63b540575212db2fc826
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (

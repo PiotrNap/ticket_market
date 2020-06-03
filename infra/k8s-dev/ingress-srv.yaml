@@ -30,5 +30,8 @@ spec:
             backend:
               serviceName: client-srv
               servicePort: 3000
+<<<<<<< HEAD
 
               
+=======
+>>>>>>> d37152bdcc24fd7dbfbe63b540575212db2fc826
