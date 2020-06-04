@@ -30,18 +30,10 @@ const Menu = ({ currentUser }) => {
       <style jsx>{`
         div.icons {
           padding: 4px 1px;
-<<<<<<< HEAD
         }
         svg {
           width: 24px;
           height: 24px;
-=======
-          }
-        svg {
-            width: 24px;
-            height: 24px;
-          }
->>>>>>> b89c52433d6f732caf7e2832ceef9cb53b859d69
         }
       `}</style>
     </div>

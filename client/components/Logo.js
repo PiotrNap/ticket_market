@@ -1,9 +1,5 @@
 import React, { Fragment } from 'react';
-<<<<<<< HEAD
 import logo from '../public/logo.png';
-=======
-import logo from '../public/static/logo.png';
->>>>>>> b89c52433d6f732caf7e2832ceef9cb53b859d69
 import Link from 'next/link';
 
 const Logo = ({ currentUser }) => {
