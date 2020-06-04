@@ -1,32 +1,21 @@
-import Link from 'next/link';
+import React from 'react';
+import Logo from './Logo';
+import Menu from './Menu';
 
-export default ({ currentUser }) => {
-  const links = [
-    !currentUser && { label: 'Sign Up', href: '/auth/signup' },
-    !currentUser && { label: 'Sign In', href: '/auth/signin' },
-    currentUser && { label: 'Sell tickets', href: '/tickets/new' },
-    currentUser && { label: 'My Orders', href: '/orders' },
-    currentUser && { label: 'Sign Out', href: '/auth/signout' },
-  ]
-    .filter((linkConfig) => linkConfig) // filter which are falsy
-    .map(({ label, href }) => {
-      return (
-        <li key={href} className='nav-item'>
-          <Link href={href}>
-            <a className='nav-link'>{label}</a>
-          </Link>
-        </li>
-      );
-    });
-
+const Header = ({ currentUser }) => {
   return (
-    <nav className='navbar navbar-light bg-light'>
-      <Link href='/'>
-        <a className='navbar-brand'>Ticket Market</a>
-      </Link>
-      <div className='d-flex jistify-content-end'>
-        <ul className='nav d-flex align-items-center'>{links}</ul>
-      </div>
-    </nav>
+    <header className='navbar navbar-light'>
+      <Logo currentUser={currentUser} />
+      <Menu currentUser={currentUser} />
+      <style jsx>{`
+        header {
+          margin: auto;
+          max-width: 90%;
+          border-bottom: 1px solid #1d1d1d;
+        }
+      `}</style>
+    </header>
   );
 };
+
+export default Header;
