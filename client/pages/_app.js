@@ -3,7 +3,7 @@ import buildClient from '../api/build-client';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import favicon from '../public/static/favicon.png';
-import '../styles/global.css';
+import '../public/static/global.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -14,6 +14,11 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
         <title>Ticket Market | Buy Sell and Enjoy!</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <link rel='shortcut icon' href={favicon} />
+        <link
+          rel='stylesheet'
+          href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap'
+        />
+        <link rel='stylesheet' href='../public/static/global.css' />
         <meta
           property='og:title'
           content='Ticket Market | Buy Sell and Enjoy!'
