@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import favicon from '../public/static/favicon.png';
 import '../styles/global.css';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
