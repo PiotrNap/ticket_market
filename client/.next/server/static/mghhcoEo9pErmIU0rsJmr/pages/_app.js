@@ -188,9 +188,9 @@ var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_)
   if (true) {
     // we are on the server
     return external_axios_default.a.create({
-      // baseURL: 'http://www.ticket-market-app.xyz', // --> deployment url
-      baseURL: 'http://ingress-nginx.ingress-nginx.svc.cluster.local',
-      // --> local development
+      baseURL: 'http://www.ticket-market-app.xyz',
+      // --> deployment url
+      // baseURL: 'http://ingress-nginx.ingress-nginx.svc.cluster.local', // --> local development
       headers: req.headers
     });
   } else {}
