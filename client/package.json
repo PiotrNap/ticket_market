@@ -4,17 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export -o public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
-    "next": "^9.3.6",
+    "bootstrap": "^4.5.0",
+    "next": "^9.4.4",
+    "next-images": "^1.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-stripe-checkout": "^2.6.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "styled-jsx-plugin-sass": "^1.0.0"
   }
 }

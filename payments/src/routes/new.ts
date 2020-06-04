@@ -13,6 +13,7 @@ import { stripe } from '../stripe';
 import { Payment } from '../models/payment';
 import { PaymentCreatedPublisher } from '../events/publisher/payment-created-publisher';
 import { natsWrapper } from '../nats-wrapper';
+// import emailSender from './services/template.js'
 
 const router = express.Router();
 
@@ -55,6 +56,7 @@ router.post(
     });
 
     await payment.save();
+
     new PaymentCreatedPublisher(natsWrapper.client).publish({
       id: payment.id,
       orderId: payment.orderId,
