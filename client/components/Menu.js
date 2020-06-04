@@ -1,8 +1,7 @@
-import React from 'react';
 import Link from 'next/link';
 import IconSignup from './icons/signup';
 
-const Menu = ({ currentUser }) => {
+export default ({ currentUser }) => {
   const links = [
     !currentUser && { label: 'Sign Up', href: '/auth/signup' },
     !currentUser && { label: 'Sign In', href: '/auth/signin' },
@@ -39,5 +38,3 @@ const Menu = ({ currentUser }) => {
     </div>
   );
 };
-
-export default Menu;

@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
 import logo from '../public/logo.png';
 import Link from 'next/link';
+import { Fragment } from 'react';
 
-const Logo = ({ currentUser }) => {
+export default ({ currentUser }) => {
   return (
     <Fragment>
       {!currentUser ? (
@@ -43,5 +43,3 @@ const Logo = ({ currentUser }) => {
     </Fragment>
   );
 };
-
-export default Logo;

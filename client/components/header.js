@@ -1,8 +1,7 @@
-import React from 'react';
 import Logo from './Logo';
 import Menu from './Menu';
 
-const Header = ({ currentUser }) => {
+export default ({ currentUser }) => {
   return (
     <header className='navbar navbar-light'>
       <Logo currentUser={currentUser} />
@@ -17,5 +16,3 @@ const Header = ({ currentUser }) => {
     </header>
   );
 };
-
-export default Header;
