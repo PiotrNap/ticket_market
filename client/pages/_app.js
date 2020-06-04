@@ -1,15 +1,36 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import buildClient from '../api/build-client';
-import Header from '../components/header';
+import Head from 'next/head';
+import { Fragment } from 'react';
+import favicon from '../public/static/favicon.png';
+import '../public/static/global.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
-    <div>
+    <Fragment>
+      <Head>
+        <title>Ticket Market | Buy Sell and Enjoy!</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link rel='shortcut icon' href={favicon} />
+        <link
+          rel='stylesheet'
+          href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap'
+        />
+        <link rel='stylesheet' href='../public/static/global.css' />
+        <meta
+          property='og:title'
+          content='Ticket Market | Buy Sell and Enjoy!'
+          key='title'
+        />
+      </Head>
       <Header currentUser={currentUser} />
       <div className='container'>
         <Component currentUser={currentUser} {...pageProps} />
       </div>
-    </div>
+      <Footer />
+    </Fragment>
   );
 };
 
