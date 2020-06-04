@@ -1,5 +1,5 @@
-import Logo from './Logo';
-import Menu from './Menu';
+import Logo from './logo';
+import Menu from './menu';
 
 export default ({ currentUser }) => {
   return (

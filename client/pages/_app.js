@@ -3,8 +3,8 @@ import buildClient from '../api/build-client';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import favicon from '../public/favicon.png';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (

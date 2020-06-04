@@ -1,4 +1,4 @@
-const Footer = () => {
+export default () => {
   return (
     <div className='footer'>
       <div className='copyright'>
@@ -15,5 +15,3 @@ const Footer = () => {
     </div>
   );
 };
-
-export default Footer;
