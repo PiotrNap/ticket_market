@@ -1,4 +1,5 @@
 import logo from '../public/logo.png';
+import logoMobile from '../public/logoMobile.png';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
@@ -6,37 +7,53 @@ export default ({ currentUser }) => {
   return (
     <Fragment>
       {!currentUser ? (
-        <Link href='/'>
-          <img src={logo} />
-        </Link>
+        <>
+          <Link href='/'>
+            <img className='logo' src={logo} />
+          </Link>
+          <Link href='/'>
+            <img className='logoMobile' src={logoMobile} />
+          </Link>
+        </>
       ) : (
-        <Link href='/dashboard'>
-          <img src={logo} />
-        </Link>
+        <>
+          <Link href='/dashboard'>
+            <img className='logo' src={logo} />
+          </Link>
+          <Link href='/'>
+            <img className='logoMobile' src={logoMobile} />
+          </Link>
+        </>
       )}
       <style jsx>{`
-        img {
+        .logo {
           display: block;
-          width: 200px;
+          width: 230px;
           height: auto;
           padding: 6px 0 4px 24px;
+        }
+        .logoMobile {
+          display: none;
         }
         img:hover,
         img:focus {
           cursor: pointer;
         }
-
-        @media screen and (max-width: 1440px) {
-          img {
+        @media screen and (max-width: 75em) {
+          .logo {
             width: 210px;
             padding: 8px 0px 8px 24px;
           }
         }
-
-        @media screen and (max-width: 630px) {
-          img {
-            width: 150px;
-            padding: 4px 0px 2px;
+        @media screen and (max-width: 37.5em) {
+          .logo {
+            display: none;
+          }
+          .logoMobile {
+            display: block;
+            width: 45px;
+            height: auto;
+            padding: 3px 0;
           }
         }
       `}</style>

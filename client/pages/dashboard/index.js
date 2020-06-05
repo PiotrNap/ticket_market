@@ -1,6 +1,12 @@
 import Link from 'next/link';
+import Head from 'next/head';
+import { Fragment } from 'react';
 
-const DashboardIndex = ({ currentUser, tickets }) => {
+const DashboardIndex = ({
+  currentUser,
+  tickets,
+  title = 'Welcome to Your Dashboard',
+}) => {
   const ticketList = tickets.map((ticket) => {
     return (
       <tr key={ticket.id}>
@@ -16,19 +22,24 @@ const DashboardIndex = ({ currentUser, tickets }) => {
   });
 
   return (
-    <div>
-      <h1>Tickets</h1>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>{ticketList}</tbody>
-      </table>
-    </div>
+    <Fragment>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <div>
+        <h1>Tickets</h1>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Price</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>{ticketList}</tbody>
+        </table>
+      </div>
+    </Fragment>
   );
 };
 
