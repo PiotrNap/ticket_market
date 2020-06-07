@@ -44,14 +44,14 @@ export default () => {
           © {new Date().getFullYear()} Ticket Market. by Piotr N.
         </div>
       </div>
-      <style jsx>{`
+      {/* <style jsx>{`
         div.footer {
           display: flex;
           align-items: center;
           justify-content: center;
           padding-bottom: 5rem;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };

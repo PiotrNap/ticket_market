@@ -11,7 +11,9 @@ export default () => {
       }}
       initialValues={{ email: '' }}
       validationSchema={Yup.object().shape({
-        email: Yup.string().email().required('You should change something!'),
+        email: Yup.string()
+          .email('You should change something!')
+          .required('Are you sure?'),
       })}
     >
       {({ isSubmitting }) => (

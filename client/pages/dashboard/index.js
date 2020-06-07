@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { Fragment } from 'react';
+import paths from '../../paths';
 
 const DashboardIndex = ({
   currentUser,
@@ -44,7 +45,7 @@ const DashboardIndex = ({
 };
 
 DashboardIndex.getInitialProps = async (context, client, currentUser) => {
-  const { data } = await client.get('/api/tickets');
+  const { data } = await client.get(`${paths.tickets}`);
 
   return { tickets: data };
 };

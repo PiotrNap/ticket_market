@@ -3,16 +3,17 @@ import StripeCheckout from 'react-stripe-checkout';
 import useRequest from '../../hooks/use-request';
 import Router from 'next/router';
 import Head from 'next/head';
+import paths from '../../paths';
 
 const OrderShow = ({ order, currentUser, title }) => {
   const [timeLeft, setTimeLeft] = useState(0);
   const { doRequest, errors } = useRequest({
-    url: '/api/payments',
+    url: `${paths.payments}`,
     method: 'post',
     body: {
       orderId: order.id,
     },
-    onSuccess: () => Router.push('/orders'),
+    onSuccess: () => Router.push(`${paths.orders}`),
   });
 
   useEffect(() => {

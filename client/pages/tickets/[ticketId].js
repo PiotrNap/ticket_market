@@ -1,9 +1,12 @@
 import useRequest from '../../hooks/use-request';
 import Router from 'next/router';
+import paths from '../../paths';
+
+const { orders } = paths;
 
 const TicketShow = ({ ticket }) => {
   const { doRequest, errors } = useRequest({
-    url: '/api/orders',
+    url: `${orders}`,
     method: 'post',
     body: {
       ticketId: ticket.id,
@@ -26,7 +29,7 @@ const TicketShow = ({ ticket }) => {
 
 TicketShow.getInitialProps = async (context, client) => {
   const { ticketId } = context.query;
-  const { data } = await client.get(`/api/tickets/${ticketId}`);
+  const { data } = await client.get(`${paths.tickets}${ticketId}`);
 
   return { ticket: data };
 };

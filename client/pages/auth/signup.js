@@ -2,16 +2,17 @@ import { useState, Fragment } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
 import Head from 'next/head';
+import paths from '../../paths';
 
 export default ({ title = 'Sign up To New Account' }) => {
   // hooks ->
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { doRequest, errors } = useRequest({
-    url: '/api/users/signup',
+    url: `${paths.signup}`,
     method: 'post',
     body: { email, password },
-    onSuccess: () => Router.push('/dashboard'),
+    onSuccess: () => Router.push(`${paths.dashboard}`),
   });
 
   const onSubmit = async (event) => {

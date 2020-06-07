@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
+import paths from '../../paths';
 
 const NewTicket = () => {
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
   const { doRequest, errors } = useRequest({
-    url: '/api/tickets',
+    url: `${orders.tickets}`,
     method: 'post',
     body: {
       title,
       price,
     },
-    onSuccess: (ticket) => Router.push('/dashboard'),
+    onSuccess: (ticket) => Router.push(`${paths.dashboard}`),
   });
 
   const onSubmit = (event) => {

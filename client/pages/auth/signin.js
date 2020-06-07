@@ -2,13 +2,14 @@ import { useState, Fragment } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
 import Head from 'next/head';
+import paths from '../../paths';
 
 export default ({ title = 'Sign in To Your Account' }) => {
   // hooks ->
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { doRequest, errors } = useRequest({
-    url: '/api/users/signin',
+    url: `${paths.signin}`,
     method: 'post',
     body: { email, password },
     onSuccess: () => Router.push('/dashboard'),

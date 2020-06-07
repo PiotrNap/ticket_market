@@ -1,13 +1,18 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
 import Register from '../components/register';
-import landingHero from '../public/landingHero';
-import landingHeroMobile from '../public/landingHeroMobile';
+import styled from 'styled-components';
+
+const StyledHero = styled.div`
+  width: 100%;
+  height: 80vh;
+  
+`
 
 const LandingPage = () => {
   return (
     <Fragment>
-      <div className='hero'>
+      <StyledHero>
         <div className='hero__section'>
           <div className='hero__section-heading'>
             <h1>Don't miss the latest events!</h1>
@@ -24,7 +29,7 @@ const LandingPage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </StyledHero>
       <div className='showcase'>
         <div className='showcase__grid'>
           <div className='block-1'>
@@ -115,13 +120,19 @@ const LandingPage = () => {
       <section className='newsletter'>
         <Register />
       </section>
-      <style jsx>{`
+      {/* <style jsx>{`
         .hero {
           width: 100%;
-          height: 70vh;
-          background-image: {landingHero};
+          height: 90vh;
+          background-image: linear-gradient(
+              rgba(103, 97, 111, 0.8),
+              rgba(46, 23, 78, 0.64)
+            ),
+            url('landingHero.jpg');
+          background-size: cover;
+          background-position: center;
         }
-        `}</style>
+      `}</style> */}
     </Fragment>
   );
 };

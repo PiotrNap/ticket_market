@@ -1,40 +1,91 @@
 import Link from 'next/link';
-import IconSignup from './icons/signup';
+import IconSignin from './icons/signin';
+import paths from '../paths';
+import styled from 'styled-components';
+import theme from './styles/theme';
+
+const { colors, fontSizes } = theme;
+
+const StyledList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    font-size: ${fontSizes.large};
+    font-weight: 500;
+    cursor: pointer;
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      height: 1.05rem;
+      width: auto;
+      margin-left: 0.5rem;
+    }
+
+    :hover,
+    :active {
+      color: ${colors.purple};
+    }
+  }
+`;
+
+const StyledListPoint = styled.li`
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  font-size: ${fontSizes.large};
+  font-weight: 500;
+  cursor: pointer;
+
+  :hover,
+  :active {
+    color: ${colors.purple};
+  }
+`;
+
+const StyledSpan = styled.span`
+  display: flex;
+  align-items: center;
+`;
+
+const { signin, signup, orders, signout, ticketNew } = paths;
 
 export default ({ currentUser }) => {
   const links = [
-    !currentUser && { label: 'Sign Up', href: '/auth/signup' },
-    !currentUser && { label: 'Sign In', href: '/auth/signin' },
-    currentUser && { label: 'Sell tickets', href: '/tickets/new' },
-    currentUser && { label: 'My Orders', href: '/orders' },
-    currentUser && { label: 'Sign Out', href: '/auth/signout' },
+    !currentUser && {
+      label: 'Sign Up',
+      href: `${signup}`,
+    },
+    !currentUser && {
+      label: 'Sign In',
+      href: `${signin}`,
+      icon: <IconSignin />,
+    },
+    currentUser && { label: 'Sell tickets', href: `${ticketNew}` },
+    currentUser && { label: 'My Orders', href: `${orders}` },
+    currentUser && { label: 'Sign Out', href: `${signout}` },
   ]
     .filter((linkConfig) => linkConfig) // filter which are falsy
-    .map(({ label, href }) => {
+    .map(({ label, href, icon }) => {
       return (
-        <li key={href} className='nav-item'>
+        <StyledListPoint key={href}>
           <Link href={href}>
-            <a className='nav-link'>{label}</a>
+            <StyledSpan>
+              {label}
+              {icon}
+            </StyledSpan>
           </Link>
-        </li>
+        </StyledListPoint>
       );
     });
 
-  return (
-    <div className='d-flex justify-content-end'>
-      <ul className='nav d-flex align-items-center'>{links}</ul>
-      <div className='icons'>
-        <IconSignup />
-      </div>
-      <style jsx>{`
-        div.icons {
-          padding: 4px 1px;
-        }
-        svg {
-          width: 24px;
-          height: 24px;
-        }
-      `}</style>
-    </div>
-  );
+  return <StyledList>{links}</StyledList>;
 };
