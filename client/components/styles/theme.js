@@ -8,6 +8,7 @@ const theme = {
     purple: ACCENT,
     lightPurple: '#8c5ccc',
     darkText: '#1a191c',
+    lightText: '#2e2e30',
     white: BG,
     transPurple: hex2rgba(ACCENT, 0.1),
     shadowWhite: hex2rgba(BG, 0.1),
@@ -19,13 +20,14 @@ const theme = {
   fontSizes: {
     small: '0.75rem',
     normal: '1rem',
-    large: '1.25rem',
+    large: '1.2rem',
     big: '1.5rem',
     Xbig: '2.5rem',
   },
-  mbSm: '2rem',
-  mbMd: '4rem',
-  mbLg: '6rem',
+  mbSm: '1.2rem',
+  mbMd: '1.6rem',
+  mbMd: '2rem',
+  mbLg: '3.5rem',
 };
 
 export default theme;

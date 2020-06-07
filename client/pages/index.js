@@ -2,70 +2,18 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 import Register from '../components/register';
 import styled from 'styled-components';
+import { device } from '../components/styles/device';
+import theme from '../components/styles/theme';
+import HeroSection from '../components/hero/heroSection';
+import LandingGallery from '../components/gallery/landingGallery';
 
-const StyledHero = styled.div`
-  width: 100%;
-  height: 80vh;
-  
-`
+const { colors, fontSizes } = theme;
 
 const LandingPage = () => {
   return (
     <Fragment>
-      <StyledHero>
-        <div className='hero__section'>
-          <div className='hero__section-heading'>
-            <h1>Don't miss the latest events!</h1>
-          </div>
-          <div className='hero__section-sub'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              sint?
-            </p>
-          </div>
-          <div className='hero__section-btn'>
-            <Link href='auth/signup'>
-              <button className='btn-large'>Make an account</button>
-            </Link>
-          </div>
-        </div>
-      </StyledHero>
-      <div className='showcase'>
-        <div className='showcase__grid'>
-          <div className='block-1'>
-            <div className='block-1__heading'>
-              <h3>Concert 1</h3>
-            </div>
-            <div className='block-1__info'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-          </div>
-          <div className='block-2'>
-            <div className='block-2__heading'>
-              <h3>Concert 2</h3>
-            </div>
-            <div className='block-2__info'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-          </div>
-          <div className='block-3'>
-            <div className='block-3__heading'>
-              <h3>Concert 3</h3>
-            </div>
-            <div className='block-3__info'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-          </div>
-          <div className='block-4'>
-            <div className='block-4__heading'>
-              <h3>Concert 4</h3>
-            </div>
-            <div className='block-4__info'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroSection />
+      <LandingGallery />
       <div className='featured'>
         <div className='featured__box-row1'>
           <div className='featured__img'>
@@ -120,19 +68,6 @@ const LandingPage = () => {
       <section className='newsletter'>
         <Register />
       </section>
-      {/* <style jsx>{`
-        .hero {
-          width: 100%;
-          height: 90vh;
-          background-image: linear-gradient(
-              rgba(103, 97, 111, 0.8),
-              rgba(46, 23, 78, 0.64)
-            ),
-            url('landingHero.jpg');
-          background-size: cover;
-          background-position: center;
-        }
-      `}</style> */}
     </Fragment>
   );
 };
