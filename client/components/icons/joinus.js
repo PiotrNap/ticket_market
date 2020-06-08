@@ -6,8 +6,6 @@ const IconJoinus = () => {
       id='a31e7729-94ce-4b70-883a-94bdaa3e886c'
       data-name='Layer 1'
       xmlns='http://www.w3.org/2000/svg'
-      width='951.57086'
-      height='665.12779'
       viewBox='0 0 951.57086 665.12779'
     >
       <path

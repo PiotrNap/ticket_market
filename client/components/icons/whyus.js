@@ -6,8 +6,6 @@ function IconWhyus() {
       id='ae636c83-9a69-4d8f-8683-8786b472330f'
       data-name='Layer 1'
       xmlns='http://www.w3.org/2000/svg'
-      width='643.45103'
-      height='542.33898'
       viewBox='0 0 643.45103 542.33898'
     >
       <ellipse cx='567' cy='537' rx='70' ry='5.33898' fill='#e6e6e6' />

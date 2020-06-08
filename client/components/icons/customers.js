@@ -6,8 +6,6 @@ const IconCustomers = () => {
       id='a77d060e-bfde-44e4-9303-3da9960cf22f'
       data-name='Layer 1'
       xmlns='http://www.w3.org/2000/svg'
-      width='847.93574'
-      height='568.36073'
       viewBox='0 0 847.93574 568.36073'
     >
       <path

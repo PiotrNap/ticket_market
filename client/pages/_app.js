@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import favicon from '../public/favicon.png';
 import Header from '../components/header/Header';
-import Footer from '../components/footer';
+import Footer from '../components/footer/footer';
 import GlobalStyle from '../components/styles/GlobalStyles';
 
 // add CurrentUser to props !!!!
