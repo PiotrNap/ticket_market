@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import IconSignin from '../icons/signin';
-import paths from '../../paths';
 import styled from 'styled-components';
 import theme from '../styles/theme';
 import { device } from '../styles/device';
@@ -9,8 +8,8 @@ const { colors, fontSizes } = theme;
 
 const StyledMenu = styled.div`
   @media ${device.mobileL} {
-    flex: 0 0 100%;
-    align-items: center;
+    flex: 0 0 60%;
+    align-items: flex-end;
     justify-content: center;
   }
 `;
@@ -29,7 +28,7 @@ const StyledListPoint = styled.li`
   display: flex;
   align-items: center;
   padding: 15px 10px;
-  font-size: ${fontSizes.large};
+  font-size: ${fontSizes.medium};
   font-weight: 500;
   cursor: pointer;
 
@@ -55,22 +54,25 @@ const StyledListPoint = styled.li`
   }
 `;
 
-const { signin, signup, orders, signout, ticketNew } = paths;
-
 export default ({ currentUser }) => {
   const links = [
     !currentUser && {
+      label: 'Sell Ticket',
+      href: '/dashboard',
+    },
+    !currentUser && {
       label: 'Sign Up',
-      href: `${signup}`,
+      href: '/auth/signup',
     },
     !currentUser && {
       label: 'Sign In',
-      href: `${signin}`,
+      href: '/auth/signin',
       icon: <IconSignin />,
     },
-    currentUser && { label: 'Sell tickets', href: `${ticketNew}` },
-    currentUser && { label: 'My Orders', href: `${orders}` },
-    currentUser && { label: 'Sign Out', href: `${signout}` },
+    currentUser && { label: 'All tickets', href: '/dashboard/user' },
+    currentUser && { label: 'New ticket', href: '/tickets/new' },
+    currentUser && { label: 'My orders', href: '/orders/' },
+    currentUser && { label: 'Sign out', href: '/auth/signout' },
   ]
     .filter((linkConfig) => linkConfig) // filter which are falsy
     .map(({ label, href, icon }) => {

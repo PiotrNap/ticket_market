@@ -7,16 +7,22 @@ import { device } from './styles/device';
 const { colors, fontSizes } = theme;
 
 const StyledNewsletter = styled.div`
-  height: 45vh;
+  height: 50vh;
+  padding-bottom: 2.5rem;
   background-color: ${colors.transPurple};
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 2.5px solid ${colors.purple};
+  border-bottom: 2.5px solid ${colors.purple};
+
+  @media ${device.mobileL} {
+    height: 35vh;
+  }
 `;
 
 const StyledRegisterBox = styled.div`
-  display: flex;
-  flex-direction: column;
+  flex: 0 0 60%;
 `;
 
 const Newsletter = () => {

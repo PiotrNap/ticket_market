@@ -1,21 +1,12 @@
 import paths from '../../paths';
+import OrderDashboard from '../../components/user/orderDashboard';
 
 const OrderIndex = ({ orders }) => {
-  return (
-    <ul>
-      {orders.map((order) => {
-        return (
-          <li key={order.id}>
-            {order.ticket.title} - {order.status}
-          </li>
-        );
-      })}
-    </ul>
-  );
+  return <OrderDashboard orders={orders} />;
 };
 
 OrderIndex.getInitialProps = async (context, client) => {
-  const { data } = await client.get(`${paths.OrderIndex}`);
+  const { data } = await client.get(`${paths.ordersIndex}`);
 
   return { orders: data };
 };

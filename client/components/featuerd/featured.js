@@ -13,9 +13,14 @@ const StyledFeatured = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2.5rem 1.5rem;
   justify-content: center;
   align-items: center;
+
+  @media ${device.mobileL} {
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem 1rem;
+  }
 `;
 
 const StyledRow = styled.div`
@@ -26,7 +31,6 @@ const StyledRow = styled.div`
 
   @media ${device.mobileL} {
     flex-direction: column;
-    text-align: center;
   }
 `;
 
@@ -57,6 +61,10 @@ const StyledRowText = styled.div`
   flex: 0 0 50%;
   text-align: ${(props) => props.textAlign || 'left'};
   align-items: ${(props) => props.alignItems || 'left'};
+
+  @media ${device.mobileL} {
+    text-align: center;
+  }
 `;
 
 const StyledRowTextHead = styled.div`

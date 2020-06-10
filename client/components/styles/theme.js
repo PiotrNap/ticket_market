@@ -18,10 +18,12 @@ const theme = {
     'Inter, San Francisco, SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue, Segoe UI, Arial, sans-serif',
 
   fontSizes: {
-    small: '0.75rem',
+    small: '0.85rem',
     normal: '1rem',
+    medium: '1.1rem',
     large: '1.2rem',
     Xlarge: '1.5rem',
+    XXlarge: '1.8rem',
     big: '2rem',
     Xbig: '2.5rem',
   },

@@ -15,10 +15,13 @@ const StyledMobileLogo = styled.img`
 
   @media ${device.tablet} {
     display: block;
+    flex: 0 0 40%;
+    max-width: 50px;
+    heigth: auto;
   }
 
   @media ${device.mobileL} {
-    width: 40px;
+    max-width: 40px;
     display: block;
     padding: 1px 0 1px 0;
   }
@@ -49,14 +52,7 @@ const StyledLogo = styled.img`
 export default ({ currentUser }) => {
   return (
     <Fragment>
-      <Link href='/' passHref>
-        <StyledLogo />
-      </Link>
-      <Link href='/' passHref>
-        <StyledMobileLogo />
-      </Link>
-
-      {/* {!currentUser ? (
+      {!currentUser ? (
         <>
           <Link href='/'>
             <StyledLogo className='logo' src={logo} />
@@ -74,7 +70,7 @@ export default ({ currentUser }) => {
             <StyledMobileLogo className='logoMobile' src={logoMobile} />
           </Link>
         </>
-      )} */}
+      )}
     </Fragment>
   );
 };

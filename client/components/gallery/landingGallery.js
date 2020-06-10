@@ -110,7 +110,7 @@ const LandingGallery = () => {
         <StyledImgBlock image={subHero1}>
           <StyledImgInner>
             <StyledImgBlockHead>
-              <h3>Musemum - London</h3>
+              <h3>Museum - London</h3>
             </StyledImgBlockHead>
             <StyledInfo>
               <p>

@@ -1,8 +1,10 @@
 import Logo from './logo';
 import Menu from './menu';
 import styled from 'styled-components';
-import SearchBox from './searchbox';
-import { device } from '../styles/device'
+import { device } from '../styles/device';
+import theme from '../styles/theme';
+
+const { colors, fontSizes } = theme;
 
 const StyledHeader = styled.header`
   /* position: fixed; */
@@ -13,15 +15,24 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   max-width: 90%;
   margin: 0 auto;
-  padding: 0.5rem 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-bottom: 2px solid ${colors.transPurple};
 `;
 
 export default ({ currentUser }) => {
   return (
     <StyledHeader>
-      <Logo currentUser={currentUser} className='header__logo' />
-      <SearchBox />
-      <Menu currentUser={currentUser} className='header__menu' />
+      {!currentUser ? (
+        <>
+          <Logo currentUser={currentUser} />
+          <Menu currentUser={currentUser} />
+        </>
+      ) : (
+        <>
+          <Logo currentUser={currentUser} />
+          <Menu currentUser={currentUser} />
+        </>
+      )}
     </StyledHeader>
   );
 };

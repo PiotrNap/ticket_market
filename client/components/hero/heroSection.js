@@ -68,6 +68,7 @@ const StyledButton = styled.a`
   font-size: ${fontSizes.normal};
   font-weight: 500;
   transition: all 0.2s;
+  cursor: pointer;
   :hover {
     background-color: ${colors.white};
     color: ${colors.purple};
@@ -87,11 +88,10 @@ const HeroSection = () => {
             price and order it today!
           </p>
         </StyledHeroSubHeading>
-        {/* <StyledHeroButtonStn> */}
-          <Link href='auth/signup'>
-            <StyledButton>Make an account</StyledButton>
-          </Link>
-        {/* </StyledHeroButtonStn> */}
+
+        <Link href='auth/signup'>
+          <StyledButton>Make an account</StyledButton>
+        </Link>
       </StyledHeroSection>
     </StyledHero>
   );

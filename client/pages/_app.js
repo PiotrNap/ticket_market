@@ -6,10 +6,11 @@ import Header from '../components/header/Header';
 import Footer from '../components/footer/footer';
 import GlobalStyle from '../components/styles/GlobalStyles';
 
-// add CurrentUser to props !!!!
+// currentUser!!!!
 const AppComponent = ({
   Component,
   pageProps,
+  currentUser,
   title = 'Ticket Market | Buy Sell and Enjoy!',
 }) => {
   return (
@@ -29,10 +30,10 @@ const AppComponent = ({
         />
       </Head>
       <GlobalStyle />
-      {/* <Header currentUser={currentUser} /> */}
-      <Header />
-      {/* <Component currentUser={currentUser} {...pageProps} /> */}
-      <Component {...pageProps} />
+      {/* <Header /> */}
+      <Header currentUser={currentUser} />
+      {/* <Component {...pageProps} /> */}
+      <Component currentUser={currentUser} {...pageProps} />
       <Footer />
     </Fragment>
   );
@@ -41,20 +42,21 @@ const AppComponent = ({
 AppComponent.getInitialProps = async (appContext) => {
   // console.log(appContext);
   const client = buildClient(appContext.ctx);
-  // const { data } = await client.get('/api/users/currentuser');
+
+  const { data } = await client.get('/api/users/currentuser');
 
   let pageProps = {};
   if (appContext.Component.getInitialProps) {
     pageProps = await appContext.Component.getInitialProps(
       appContext.ctx,
-      client
-      // data.currentUser
+      client,
+      data.currentUser
     );
   }
 
   return {
     pageProps,
-    // ...data,
+    ...data,
   };
 };
 
