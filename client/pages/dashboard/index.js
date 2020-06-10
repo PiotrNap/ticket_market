@@ -1,39 +1,27 @@
-import Link from 'next/link';
+import Head from 'next/head';
+import { Fragment } from 'react';
+import paths from '../../paths';
+import HeroSection from '../../components/hero/heroDashboard';
+import QuestionsSection from '../../components/faq/Questions';
 
-const DashboardIndex = ({ currentUser, tickets }) => {
-  const ticketList = tickets.map((ticket) => {
-    return (
-      <tr key={ticket.id}>
-        <td>{ticket.title}</td>
-        <td>{ticket.price}</td>
-        <td>
-          <Link href='/tickets/[ticketId]' as={`/tickets/${ticket.id}`}>
-            <a>View</a>
-          </Link>
-        </td>
-      </tr>
-    );
-  });
-
+// currentUser, tickets
+const DashboardIndex = ({
+  currentUser,
+  title = 'Welcome to Ticket Market!',
+}) => {
   return (
-    <div>
-      <h1>Tickets</h1>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>{ticketList}</tbody>
-      </table>
-    </div>
+    <Fragment>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <HeroSection />
+      <QuestionsSection currentUser={currentUser}/>
+    </Fragment>
   );
 };
 
 DashboardIndex.getInitialProps = async (context, client, currentUser) => {
-  const { data } = await client.get('/api/tickets');
+  const { data } = await client.get(`${paths.tickets}`);
 
   return { tickets: data };
 };

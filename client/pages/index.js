@@ -1,41 +1,18 @@
-import Link from 'next/link';
+import { Fragment } from 'react';
+import HeroSection from '../components/hero/heroSection';
+import LandingGallery from '../components/gallery/landingGallery';
+import Featured from '../components/featuerd/featured';
+import Newsletter from '../components/newsletter';
 
-const LandingPage = ({ currentUser, tickets }) => {
-  const ticketList = tickets.map((ticket) => {
-    return (
-      <tr key={ticket.id}>
-        <td>{ticket.title}</td>
-        <td>{ticket.price}</td>
-        <td>
-          <Link href='/tickets/[ticketId]' as={`/tickets/${ticket.id}`}>
-            <a>View</a>
-          </Link>
-        </td>
-      </tr>
-    );
-  });
-
+const LandingPage = () => {
   return (
-    <div>
-      <h1>Tickets</h1>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>{ticketList}</tbody>
-      </table>
-    </div>
+    <Fragment>
+      <HeroSection />
+      <LandingGallery />
+      <Featured />
+      <Newsletter />
+    </Fragment>
   );
-};
-
-LandingPage.getInitialProps = async (context, client, currentUser) => {
-  const { data } = await client.get('/api/tickets');
-
-  return { tickets: data };
 };
 
 export default LandingPage;
